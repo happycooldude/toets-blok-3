@@ -1,10 +1,9 @@
 <?
 include('datalayer.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $driver = $_POST["location"];
-    addLocations($driver);
-    header("Location: overzicht.php?locationadded");
-    echo ('<script>alert("Locatie toegevoegd")</script>');
+    $newdriver = $_POST;
+    addDriver($newdriver);
+    echo ('<script>alert("driver added")</script>');
 }
 ?>
 <!doctype html>
@@ -36,24 +35,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="mb-5 mt-2">
     <h1>Create a new driver here</h1>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                name <input type="text" name="huisdier" maxlength="20" /><br><br>
-                biography <input type="text" name="persoon" maxlength="20" /><br><br>
-                image <input type="text" name="land" maxlength="20" /><br><br>
-                team id <input type="text" name="verveeld" maxlength="20" /><br><br>
-                country <input type="text" name="speelgoed" maxlength="20" /><br><br>
-                podiums <input type="text" name="docent" maxlength="20" /><br><br>
-                points <input type="text" name="kopen" maxlength="20" /><br><br>
-                world championships <input type="text" name="bezigheid" maxlength="20" /><br><br>
-                highest race finish <input type="text" name="bezigheid" maxlength="20" /><br><br>
-                highest grid position <input type="text" name="bezigheid" maxlength="20" /><br><br>
-                date of birth <input type="text" name="bezigheid" maxlength="20" /><br><br>
-                place of birth <input type="text" name="bezigheid" maxlength="20" /><br><br>
+                name <input type="text" name="name" maxlength="30" /><br><br>
+                biography <input type="text" name="biography" maxlength="255" /><br><br>
+                image <input type="file" name="image" maxlength="30" /><br><br>
+                team id <input type="number" name="team_id" maxlength="10" /><br><br>
+                country <input type="text" name="country" maxlength="20" /><br><br>
+                podiums <input type="number" name="podiums" maxlength="20" /><br><br>
+                points <input type="number" name="points" maxlength="10000" /><br><br>
+                world championships <input type="number" name="world_championships" maxlength="20" /><br><br>
+                highest race finish <input type="number" name="highest_race_finish" maxlength="20" /><br><br>
+                highest grid position <input type="number" name="highest_grid_position" maxlength="20" /><br><br>
+                date of birth <input type="text" name="date_of_birth" maxlength="20" /><br><br>
+                place of birth <input type="text" name="place_of_birth" maxlength="20" /><br><br>
                 <input id="knop" type="submit" value="Versturen" />
             </form>
 </div>
 
 <footer class="bg-dark fixed-bottom">
-    <p class="text-white p-2 m-0 text-center">&copy; Your name - 2020</p>
+    <?include('footer.php')?>
 </footer>
 
 </body>

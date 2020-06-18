@@ -16,7 +16,7 @@ $data = teaminfo();
 <body>
 
 <nav class="navbar navbar-expand navbar-light bg-light sticky-top">
-    <a class="navbar-brand" href="#"><img class="img-fluid img-thumbnail" style="width:200px;" src="img/logo.jpg"/></a>
+    <a class="navbar-brand" href="#"><img class="img-fluid img-thumbnail" style="width:200px;" src="../img/logo.jpg"/></a>
 
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">

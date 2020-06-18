@@ -35,8 +35,8 @@ $data = readdriver($id);
     <div class="d-lg-flex flex-lg-row flex-sm-column justify-content-between">
         <h1>Watch <?= $data['name']?> here</h1>
         <div class="align-self-center">
-            <a class="btn-lg btn-info text-white" href="updateDriver.php">update driver</a>
-            <a class="btn-lg btn-danger text-white" href="deleteDriver.php">Delete driver x</a>
+            <a class="btn-lg btn-info text-white" href="updateDriver.php?update=<?= $data["id"]?>">update driver</a>
+            <a class="btn-lg btn-danger text-white" href="../index.php?delete=<?= $data["id"]?>" onclick="return confirm('Weet je zeker dat je het wilt verwijderen?')">Delete driver</a>
         </div>
     </div>
 

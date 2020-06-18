@@ -54,12 +54,27 @@ function teaminfo(){
   return $result;  
 }
 
-function addDriver($driver)
+function addDriver($newdriver)
 {
   $dbConn = createDatabase();
-  $stmt = $dbConn->prepare("INSERT INTO drivers (name) VALUES ('$driver')");
+  $stmt = $dbConn->prepare("INSERT INTO `drivers`(`name`, `biography`, `image`, `team_id`, `country`, `podiums`, `points`, `world_championships`, `highest_race_finish`, `highest_grid_position`, `date_of_birth`, `place_of_birth`) VALUES ('$newdriver[name]','$newdriver[biography]','$newdriver[image]',$newdriver[team_id],'$newdriver[country]',$newdriver[podiums],$newdriver[points],$newdriver[world_championships],$newdriver[highest_race_finish],$newdriver[highest_grid_position],'$newdriver[date_of_birth]','$newdriver[place_of_birth]')");
   $stmt->execute();
   $dbConn = null;
+}
+
+function removeDriver($id)
+{
+  $dbConn = createDatabase();
+  $stmt = $dbConn->prepare("DELETE FROM drivers WHERE id='$id'");
+  $stmt->execute();
+  $dbConn = null;
+}
+
+function updatedriver($updatedriver,$id){
+  $dbConn = createDatabase();
+  $stmt = $dbConn->prepare("UPDATE `drivers` SET `name`='$updatedriver[name]',`biography`='$updatedriver[biography]',`image`='$updatedriver[image]',`team_id`=$updatedriver[team_id],`country`='$updatedriver[country]',`podiums`=$updatedriver[podiums],`points`=$updatedriver[points],`world_championships`=$updatedriver[world_championships],`highest_race_finish`=$updatedriver[highest_race_finish],`highest_grid_position`=$updatedriver[highest_grid_position],`date_of_birth`='$updatedriver[date_of_birth]',`place_of_birth`='$updatedriver[place_of_birth]' WHERE id=$id");
+  $stmt->execute();
+  $dbConn=null;
 }
 
 ?>

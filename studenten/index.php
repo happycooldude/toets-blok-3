@@ -1,6 +1,11 @@
 <?
 include('includes/datalayer.php');
 $data = readdrivers();
+
+if(isset($_GET['delete'])){
+    $id = $_GET['delete'];
+    removeDriver($id);
+}
 ?>
 
 <!doctype html>
